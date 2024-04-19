@@ -10,12 +10,11 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="pacientes")
-public class Paciente {
+public class Paciente extends AbstractEntity<Long> {
 	
-	@Id
-	private long id;
 	
-	@Column
+	
+	@Column(nullable=false)
 	private String nome;
 	
 	@Column
@@ -27,16 +26,16 @@ public class Paciente {
 	@Column
 	private String email;
 	
-	@Column
+	@Column(name ="telefone_completo")
 	private String telefoneCompleto;
 	
-	@Column
+	@Column(name ="data_nascimento", nullable=false)
 	private Date dataNascimento;
 	
-	@Column
+	@Column(name ="created_at", nullable=false)
 	private LocalDate createdAt;
 	
-	@Column
+	@Column(name ="updated_at", nullable=false)
 	private LocalDate updateAt;
 	
 	

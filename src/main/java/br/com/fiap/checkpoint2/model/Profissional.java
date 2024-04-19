@@ -1,33 +1,30 @@
 package br.com.fiap.checkpoint2.model;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="profissionais")
-public class Profissional {
+public class Profissional extends AbstractEntity<Long> {
 
-	@Id
-	private long id;
 	
-	@Column
+	
+	@Column(nullable=false)
 	private String nome;
 	
-	@Column
+	@Column(nullable=false)
 	private String especialidade;
 	
-	@Column
+	@Column(name="valor_hora")
 	private double valorHora;
 	
-	@Column
-	private LocalDate createdAt;
+	@Column(name="created_at",nullable=false)
+	private LocalDate  createdAt;
 	
-	@Column
-	private LocalDate updatedAt;
+	@Column(name="update_at",nullable=false)
+	private LocalDate  updatedAt;
 	
 }

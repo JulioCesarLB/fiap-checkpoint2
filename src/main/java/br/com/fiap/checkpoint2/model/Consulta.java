@@ -7,37 +7,34 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="consultas")
-public class Consulta {
+public class Consulta extends AbstractEntity<Long>{
 	
-	@Id
-	private long id;
+	
 	
 	@ManyToOne
-	@JoinColumn(name="fk_profissional_id")
+	@JoinColumn(name="profissional_id",nullable=false)
 	private Profissional profissional;
 	
 	@ManyToOne
-	@JoinColumn(name="fk_paciente_id")
+	@JoinColumn(name="paciente_id", nullable=false)
 	private Paciente paciente;
 	
-	@Column
-	private  LocalDate dataConsulta;
+	@Column(name ="data_consulta", nullable=false)
+	private  LocalDate  dataConsulta;
 	
-	@Column
+	@Column(name="status_consulta",nullable=false)
 	@Enumerated(EnumType.STRING)
 	private StatusConsulta statusConsulta;
 	
-	@Column
+	@Column(name="quantidade_horas")
 	private double quantidadeHoras;
 	
-	@Column
+	@Column(name="valor_consulta")
 	private double valorConsulta;
 }
