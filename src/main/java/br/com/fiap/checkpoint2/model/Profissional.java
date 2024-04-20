@@ -1,6 +1,7 @@
 package br.com.fiap.checkpoint2.model;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,10 +23,10 @@ public class Profissional extends AbstractEntity<Long> {
 	private double valorHora;
 	
 	@Column(name="created_at",nullable=false)
-	private LocalDate  createdAt;
+	private LocalDateTime  createdAt;
 	
 	@Column(name="updated_at",nullable=false)
-	private LocalDate  updatedAt;
+	private LocalDateTime  updatedAt;
 
 	public String getNome() {
 		return nome;
@@ -51,20 +52,21 @@ public class Profissional extends AbstractEntity<Long> {
 		this.valorHora = valorHora;
 	}
 
-	public LocalDate getCreatedAt() {
+	public LocalDateTime getCreatedAt() {
 		return createdAt;
 	}
 
-	public void setCreatedAt(LocalDate createdAt) {
+	public void setCreatedAt(LocalDateTime createdAt) {
 		this.createdAt = createdAt;
 	}
 
-	public LocalDate getUpdatedAt() {
+	public LocalDateTime getUpdatedAt() {
 		return updatedAt;
 	}
 
-	public void setUpdatedAt(LocalDate updatedAt) {
+	public void setUpdatedAt(LocalDateTime updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+
 	
 }
